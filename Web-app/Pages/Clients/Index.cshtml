@@ -1,0 +1,91 @@
+@page
+@model Web_app.Pages.Clients.IndexModel
+@{
+    ViewData["Title"] = "client";
+}
+<div class="container">
+    <div class="row">
+        <div class="col-6">
+            <h1>CUSTOMER LIST</h1>
+        </div>
+        <div class="col-6 d-flex justify-content-end align-items-end">
+            <a class="me-2 btn btn-secondary btn-sm" href="/Clients/CreateList"><i class="fa-solid fa-plus"></i>New</a>
+            <a class="btn btn-secondary" href="/Index"><i class="fa-solid fa-house-chimney"></i></a>
+        </div>
+        <div class="col-12 col-md-6 col-lg-3">
+            <form method="GET" asp-page="/Clients/Index" id="filterForm">
+            <label for="filter" class="form-label">Filter</label>
+            <select id="filter" name="branch" class="form-select" onchange="document.getElementById('filterForm').submit()">
+                <option value="" disabled selected>Select Branch</option>
+                <option value="">All Branch</option>
+                <option value="R s Puram" selected="@(Model.branch == "R s Puram" ? "selected" : null)">R S Puram</option>
+                <option value="Ukkadam" selected="@(Model.branch == "Ukkadam" ? "selected" : null)">Ukkadam</option>
+                <option value="Sundharapuram" selected="@(Model.branch == "Sundharapuram" ? "selected" : null)">Sundharapuram</option>
+                <option value="Pollachi" selected="@(Model.branch == "Pollachi" ? "selected" : null)">Pollachi</option>
+                <option value="Sulur" selected="@(Model.branch == "Sulur" ? "selected" : null)">Sulur</option>
+            </select>
+            </form>
+        </div>
+    </div>
+    <div class="table-responsive mt-5">
+        <table class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Customer Code</th>
+                    <th>Customer Name</th>
+                    <th>Contact No</th>
+                    <th>Email</th>
+                    <th>Area</th>
+                    <th>Address</th>
+                    <th>Branch</th>
+                    <th>Status</th>
+                    <th>Action</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                @foreach(var item in Model.listClients)
+                {
+                    <tr>
+                        <td id="id-@item.id">@item.id</td>
+                        <td id="customer_code-@item.id">@item.customer_code</td>
+                        <td id="customer_name-@item.id">@item.customer_name</td>
+                        <td id="contact_no-@item.id">@item.contact_no</td>
+                        <td id="email-@item.id">@item.email</td>
+                        <td id="area-@item.id">@item.area</td>
+                        <td id="address-@item.id">@item.address</td>
+                        <td id="branch-@item.id">@item.branch</td>
+                        <td id="status-@item.id">@(item.status=="1"?"Active":"Inactive")</td>
+                        <td>
+                            <div class="dropdown">
+                                <button type="button" class="btn btn-outline-primary dropdown-toggle" id="actionDropdown-@item.id" data-bs-toggle="dropdown"aria-expanded="false">
+                                    Action
+                                </button>
+                                <ul class="dropdown-menu" aria-labelledby="actionDropdown">
+                                <li>
+                                    <a class="dropdown-item" asp-page="/Clients/Edit" asp-route-id="@item.id" ><i class="fa-regular fa-pen-to-square pe-1"></i>Edit</a>
+                                </li>
+                                    <li>
+                                        <a class="dropdown-item" onclick="deleteFunction('@item.customer_name')" asp-route-id="@item.id" ><i class="fa-regular fa-trash-can pe-1"></i>Delete</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </td>
+                    </tr> 
+                }
+
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<script>
+    function deleteFunction (element){
+        let value = element;
+        console.log(value);
+        if(confirm("Area you sure you want to delete the Customer: "+ value)){
+            window.location.href="/Clients/Delete";
+        }
+    }
+</script>

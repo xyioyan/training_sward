@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+</head>
+<body class="bg-secondary">
+    <div class="container-flex bg-light pt-2 m-2 ">
+        <p class="h3 p-2" >CUSTOMER CREATION</p>
+        <form action="" class="p-2 m-4 text-primary" style="border: 2px solid #c0bdbd;">
+            <div class="row p-2 ">
+                <div class="col-12 col-md-6 col-lg-3 p-2">
+                    <label for="branch" class="form-label">Branch</label>
+                    <select name="branch" id="branch" required class="form-select">
+                        <option value="" disabled selected>Select Branch</option>
+                        <option value="R s Puram">R S Puram</option>
+                        <option value="Ukkadam">Ukkadam</option>
+                        <option value="Sundharapuram">Sundharapuram</option>
+                        <option value="Pollachi">Pollachi</option>
+                        <option value="Sulur">Sulur</option>
+                    </select>
+                </div>
+                <div class="col-12 col-md-6 col-lg-3 p-2">
+                    <label class="form-label" for="customercode">Customer Code</label>
+                    <input class="form-control" type="text" id="customercode">
+                </div>
+                <div class="col-12 col-md-6 col-lg-3 p-2">
+                    <label class="form-label" for="customername">Customer Name</label>
+                    <input class="form-control" type="text" id="customername">
+                </div>
+                <div class="col-12 col-md-6 col-lg-3 p-2">
+                    <label class="form-label" for="category">Category</label>
+                    <select class="form-select" name="category" id="category" required>
+                        <option value="" selected disabled>Select Category</option>
+                        <option value="active">Actiove</option>
+                        <option value="inactive">Inactive</option>
+                    </select>
+                </div>
+                <div class="col-12 col-md-6 col-lg-3 p-2">
+                    <label class="form-label" for="contactno">Contact No</label>
+                    <input class="form-control" type="text" id="contactno">
+                </div>
+                <div class="col-12 col-md-6 col-lg-3 p-2">
+                    <label class="form-label" for="email">Email</label>
+                    <input class="form-control" type="text" id="email">
+                    <label class="form-label" for="area">Area</label>
+                    <input class="form-control" type="text" id="area">
+                </div>
+                <div class="col-12 col-sm-6 col-lg-6 p-2">
+                        <label class="form-label" for="address">Address</label>
+                        <textarea class="form-control" name="address" id="address" cols="30" rows="4" required></textarea>
+                </div>
+            </div>
+        </form>
+        <div class="row">
+            <div class="col-12 text-center mt-4">
+                <div class="p-4" style="perspective: 100px; border-top: 2px solid #c0bdbd;">
+                    <button class="btn text-white icon-link icon-link-hover" style="--bs-icon-link-transform: translate3d(0, -.3rem, 0); background-color: rgb(135, 85, 237); "><i class="fa-regular fa-floppy-disk bi"></i> Save</button>
+                    
+                    <button type="button"  class="text-white btn icon-link icon-link-hover" style="--bs-icon-link-transform: scale(1.5); transition: var(--bs-icon-link-transform) 0.3ease; background-color: orangered;"><i style="transition: transform 0.3s ease;" class="fa-solid fa-xmark bi"></i>Cancel</button>
+                    
+                    <a href="customerlist.html">
+                        <button class="text-white btn icon-link icon-link-hover" style="--bs-icon-link-transform: translate3d(-.5rem, 0, 0); background-color: rgb(73, 0, 141);"><i class="fa-solid fa-backward bi"></i> Back To List</button>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

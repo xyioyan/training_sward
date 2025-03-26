@@ -1,0 +1,24 @@
+@page
+@using Microsoft.Data.SqlClient;
+
+@{
+   
+        try{
+            string id = Request.Query["id"];
+
+            string connectionString = "Server=localhost\\SQLEXPRESS;Database=sathi;Trusted_Connection=True;;trustServerCertificate=true";
+
+            using(SqlConnection connection = new SqlConnection(connectionString)){
+                connection.Open();
+                string sql = "DELETE FROM dbo.customer_list WHERE id=@id";
+                using(SqlCommand command = new SqlCommand(sql, connection)){
+                    command.Parameters.AddWithValue("@id",id);
+                    command.ExecuteNonQuery();
+                }
+            }
+            Response.Redirect("/Clients/Index");
+        }
+        catch(Exception ex){
+            Console.WriteLine("Exception: "+ ex.ToString());
+        }
+}
